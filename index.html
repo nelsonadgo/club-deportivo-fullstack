@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mi Proyecto Full Stack</title>
+    <link rel="icon" href="/img/icono-club.png" type="image/png">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header>
+        <div class="logo">
+            <h1>Club Deportivo 🏆 Kanguro</h1>
+        </div>
+        <nav>
+            
+            <ul>
+                <li><a href="#" id="nav-inicio">Inicio</a></li>
+                <li><a href="#servicios" id="nav-servicios">Servicios</a></li>
+                <li><a href="#contacto" id="nav-contacto">Contacto</a></li>
+                
+                <li id="li-ingresar"><button id="btn-nav-login" class="btn-nav">Ingresar</button></li>
+                
+                <li id="li-panel" style="display: none;">
+                    <button id="btn-nav-panel" class="btn-nav" style="background-color: #28a745; color: white;">
+                        Mi Panel 👤
+                    </button>
+                </li>
+            </ul>
+        </nav>
+    </header>
+
+    <section id="hero">
+        <div class="hero-contenido">
+            <h1>Tu cambio empieza hoy</h1>
+            <p>Entrena con los mejores profesionales y alcanza tus metas.</p>
+            <a href="#servicios" class="btn-hero">Ver Actividades 👇</a>
+        </div>
+    </section>
+
+
+    <section id = "servicios">
+        
+        <!-- Servicios Dinámicos Cargados desde el Backend -->
+
+    </section>
+
+    <section id ="acceso-club">
+        <h2>Bienvenido Al Club Deportivo</h2>
+
+        <form id="form-login">
+            <div>
+            <label for="usuario">Usuario o Email :</label>
+            <input type="text" id="usuario" name="usuario" placeholder="ej. socio123" required>
+            </div>
+
+            <div>
+            <label for="password">Contraseña :</label>
+            <input type="password" id="password" name="password" placeholder="********" required>
+            </div>
+
+            <button type="submit">Ingresar</button>
+        </form>
+
+        <p>Eres Nuevo en el Club? <button id="btn-registro">Crear Cuenta</button></p>
+
+    </section>
+
+    <section id="dashboard" style="display: none";>
+        <h2>Panel de Control 🏆</h2>
+        <p>Bienvenido, <span id="nombre-usuario"></span>.</p>
+        <button id="btn-logout">Cerrar Sesión</button>
+
+        <div id="panel-admin" class="contenedor-tabla" style="display: none;">
+            <h3>Administración de Socios</h3>
+            <button id="btn-cargar-usuarios">Actualizar Lista</button>
+            <table>
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Socio</th>
+                        <th>Estado</th>
+                        <th>Acciones</th>
+                    </tr>
+                </thead>
+                <tbody id="tabla-usuarios-body"></tbody>
+            </table>
+
+            <hr style="margin: 40px 0; border: 1px solid #ddd;">
+
+            <h3>Gestión de Actividades 🏋️‍♂️</h3>
+            
+            <div style="background: #f9f9f9; padding: 15px; border-radius: 8px; margin-bottom: 20px;">
+                <h4>Agregar Nueva:</h4>
+                <input type="text" id="nombre-servicio" placeholder="Nombre (ej: Karate)">
+                <input type="text" id="desc-servicio" placeholder="Descripción breve">
+                <input type="text" id="img-servicio" placeholder="Ruta imagen (ej: img/karate.png)">
+                <button onclick="crearServicio()" style="background-color: #28a745; color: white; border: none; padding: 10px; cursor: pointer;">➕ Agregar</button>
+            </div>
+
+            <table>
+                <thead>
+                    <tr>
+                        <th>Actividad</th>
+                        <th>Descripción</th>
+                        <th>Acción</th>
+                    </tr>
+                </thead>
+                <tbody id="tabla-servicios-admin">
+                    </tbody>
+            </table>
+
+        </div>
+
+        <div id="panel-socio" class="contenedor-tabla" style="display: none;">
+            <h3>Mis Actividades 🏋️‍♀️</h3>
+            <p>Aquí verás tus clases confirmadas.</p>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Actividad</th>
+                        <th>Fecha de Inscripción</th>
+                        <th>Estado</th>
+                    </tr>
+                </thead>
+                <tbody id="tabla-inscripciones-body">
+                    </tbody>
+            </table>
+        </div>
+    </section>
+
+    <section id ="seccion-registro">
+        <h2>Registro de Nuevo Socio</h2>
+
+        <form id="form-registro">
+            <div>
+            <label for="nuevo-usuario">Usuario o Email :</label>
+            <input type="text" id="nuevo-usuario" name="nuevo-usuario" placeholder="ej. socio123" required>
+            </div>
+
+            <div>
+            <label for="nuevo-password">Contraseña :</label>
+            <input type="password" id="nuevo-password" name="nuevo-password" placeholder="********" required>
+            </div>
+
+            <button type="submit">Registrar</button>
+        </form>
+
+        <p>Ya eres Socio? <button id="btn-volver-login">Volver al Login</button></p>
+
+    </section>
+
+    <section id="contacto">
+        <h2>Contactanos 📞</h2>
+        <div class="info-contacto">
+            <p>📍 Av. del Libertador 1234, Buenos Aires</p>
+            <p>📧 info@clubdeportivo.com</p>
+            <p>⏰ Lunes a Viernes: 08:00 - 22:00 hs</p>
+        </div>
+        <p class="copyright">© 2025 Club Deportivo. Todos los derechos reservados.</p>
+    </section>
+
+    <script src="main.js"></script>
+</body>
+</html>

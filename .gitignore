@@ -1,0 +1,11 @@
+# Ignorar carpetas de librerías
+node_modules/
+venv/
+__pycache__/
+
+# Ignorar archivos del sistema
+.DS_Store
+Thumbs.db
+
+# Ignorar configuraciones locales de VS Code (opcional)
+.vscode/
