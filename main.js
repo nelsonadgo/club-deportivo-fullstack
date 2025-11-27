@@ -35,7 +35,7 @@ formLogin.addEventListener('submit', function(event) {
     console.log("Enviando Datos a Python");
 
     // Aqui uso fetch para enviar los datos al servidor Python
-    fetch('http://127.0.0.1:5000/login', {
+    fetch('https://nelsonadgo.pythonanywhere.com/login', {
         method: 'POST', // indicamos que vamos a enviar Datos
         headers: {
             'Content-Type': 'application/json' // Avisamos que enviamos formato JSON
@@ -133,7 +133,7 @@ formRegistro.addEventListener('submit', function(event) {
     console.log("Enviando Datos de Registro a Python");
 
     // Aqui uso fetch para enviar los datos al servidor Python
-    fetch('http://127.0.0.1:5000/registro', {
+    fetch('https://nelsonadgo.pythonanywhere.com/registro', {
         method: 'POST', // indicamos que vamos a enviar Datos
         headers: {
             'Content-Type': 'application/json' // Avisamos que enviamos formato JSON
@@ -224,7 +224,7 @@ const btnCargarUsuarios = document.getElementById('btn-cargar-usuarios');
 function cargarUsuarios() {
     console.log("Solicitando lista de usuarios...");
 
-    fetch('http://127.0.0.1:5000/usuarios')
+    fetch('https://nelsonadgo.pythonanywhere.com/usuarios')
         .then(response => response.json())
         .then(data => {
             console.log("Usuarios recibidos:", data);
@@ -275,7 +275,7 @@ function eliminarUsuario(id) {
     console.log("Eliminando usuario ID:", id);
 
     // 2. Enviamos la orden DELETE a Python
-    fetch(`http://127.0.0.1:5000/usuarios/${id}`, {
+    fetch(`https://nelsonadgo.pythonanywhere.com/usuarios/${id}`, {
         method: 'DELETE'
     })
     .then(response => response.json())
@@ -305,7 +305,7 @@ function inscribirUsuario(servicio) {
 
     // 2. Enviamos la inscripción
     if (confirm(`¿Quieres inscribirte en ${servicio}?`)) {
-        fetch('http://127.0.0.1:5000/inscribir', {
+        fetch('https://nelsonadgo.pythonanywhere.com/inscribir', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({
@@ -323,7 +323,7 @@ function inscribirUsuario(servicio) {
 
 function cargarInscripciones() {
     // Usamos la variable global usuarioId que guardamos al hacer login
-    fetch(`http://127.0.0.1:5000/inscripciones/${usuarioId}`)
+    fetch(`https://nelsonadgo.pythonanywhere.com/inscripciones/${usuarioId}`)
         .then(response => response.json())
         .then(data => {
             tablaInscripcionesBody.innerHTML = ''; // Limpiamos tabla
@@ -372,7 +372,7 @@ btnNavPanel.addEventListener('click', function() {
 
 // Función para cargar servicios desde la Base de Datos
 function cargarServicios() {
-    fetch('http://127.0.0.1:5000/servicios')
+    fetch('https://nelsonadgo.pythonanywhere.com/servicios')
         .then(response => response.json())
         .then(data => {
             // Limpiamos el contenedor por si acaso
@@ -405,7 +405,7 @@ cargarServicios();
 
 // 1. Cargar la tabla de gestión (similar a cargarServicios pero con botón borrar)
 function cargarServiciosAdmin() {
-    fetch('http://127.0.0.1:5000/servicios')
+    fetch('https://nelsonadgo.pythonanywhere.com/servicios')
         .then(response => response.json())
         .then(data => {
             tablaServiciosAdmin.innerHTML = '';
@@ -435,7 +435,7 @@ function crearServicio() {
         return;
     }
 
-    fetch('http://127.0.0.1:5000/servicios', {
+    fetch('https://nelsonadgo.pythonanywhere.com/servicios', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ nombre: nombre, descripcion: desc, imagen: img })
@@ -456,7 +456,7 @@ function crearServicio() {
 // 3. Eliminar servicio
 function eliminarServicio(id) {
     if (confirm("¿Seguro que quieres borrar esta actividad?")) {
-        fetch(`http://127.0.0.1:5000/servicios/${id}`, { method: 'DELETE' })
+        fetch(`https://nelsonadgo.pythonanywhere.com/servicios/${id}`, { method: 'DELETE' })
         .then(response => response.json())
         .then(data => {
             alert(data.mensaje);
