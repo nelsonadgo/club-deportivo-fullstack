@@ -405,7 +405,7 @@ cargarServicios();
 
 // 1. Cargar la tabla de gestión (similar a cargarServicios pero con botón borrar)
 function cargarServiciosAdmin() {
-    fetch('https://nelsonadgo.pythonanywhere.com/servicios')
+    fetch('https://nelsonadgo.pythonanywhere.com')
         .then(response => response.json())
         .then(data => {
             tablaServiciosAdmin.innerHTML = '';
@@ -435,7 +435,7 @@ function crearServicio() {
         return;
     }
 
-    fetch('https://nelsonadgo.pythonanywhere.com/servicios', {
+    fetch('https://nelsonadgo.pythonanywhere.com', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ nombre: nombre, descripcion: desc, imagen: img })
@@ -456,7 +456,7 @@ function crearServicio() {
 // 3. Eliminar servicio
 function eliminarServicio(id) {
     if (confirm("¿Seguro que quieres borrar esta actividad?")) {
-        fetch(`https://nelsonadgo.pythonanywhere.com/servicios/${id}`, { method: 'DELETE' })
+        fetch(`https://nelsonadgo.pythonanywhere.com/${id}`, { method: 'DELETE' })
         .then(response => response.json())
         .then(data => {
             alert(data.mensaje);
